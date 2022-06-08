@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Select from "react-select";
 import { countiesOfKenya } from "../data/countiesData.js";
 
@@ -15,7 +16,7 @@ const customStyles = {
   menu: (provided) => ({
     ...provided,
     position: "absolute",
-    left: "400px",
+    left: "25rem",
     top: "0",
     // bottom: `${window.innerHeight - 200}px`,
     width: "14rem",
@@ -23,16 +24,31 @@ const customStyles = {
 };
 
 export const Calculator = () => {
-  console.log(countiesOfKenya);
+  const [county, setCounty] = useState();
+
+  const handleChange = (e) => {
+    setCounty(e.label);
+  };
+
   return (
-    <Select
-      options={countiesOfKenya}
-      placeholder="Select your county of choice"
-      //   isLoading={true}
-      isClearable={true}
-      isSearchable={true}
-      className="w-1/5 "
-      styles={customStyles}
-    />
+    <>
+      <Select
+        options={countiesOfKenya}
+        placeholder="Select your county of choice"
+        //   isLoading={true}
+        isClearable={true}
+        isSearchable={true}
+        styles={customStyles}
+        className="w-1/5 "
+        onChange={handleChange}
+      />
+      {county ? (
+        <h1>
+          You have selected <p>{county}</p>
+        </h1>
+      ) : (
+        <p>Nothing selected</p>
+      )}
+    </>
   );
 };
