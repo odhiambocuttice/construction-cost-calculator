@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Select from "react-select";
-import { countiesOfKenya } from "../data/countiesData.js";
-import { faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { roofTypes } from "../data/roofTypeData.js";
+import { faUmbrella } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const customStyles = {
@@ -26,7 +26,7 @@ const customStyles = {
   }),
 };
 
-export const CountySelect = () => {
+export const RoofType = () => {
   const [county, setCounty] = useState([]);
 
   const handleChange = (e) => {
@@ -35,19 +35,19 @@ export const CountySelect = () => {
 
   return (
     <>
-      <div className="flex w-2/3 justify-center items-center border-2 border-slate-900 rounded p-2">
-        <div className="rounded">
-          <FontAwesomeIcon className="px-2 w-9 h-9" icon={faMapLocationDot} />
+      <div className="flex  w-2/3 justify-center items-center border-2 border-slate-900 rounded p-2 my-4">
+        <div className="  rounded">
+          <FontAwesomeIcon className="px-2 w-9 h-9" icon={faUmbrella} />
         </div>
 
         <Select
-          options={countiesOfKenya}
+          options={roofTypes}
           placeholder="Select your county of choice"
           //   isLoading={true}
           isClearable={true}
           isSearchable={true}
           styles={customStyles}
-          className="w-full"
+          className="w-full "
           onChange={handleChange}
         />
       </div>
@@ -55,7 +55,7 @@ export const CountySelect = () => {
         ""
       ) : (
         <h4>
-          You have selected <b>{county["label"]}</b> county
+          You have selected <b>{county["label"]}</b>
         </h4>
       )}
     </>

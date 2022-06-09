@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/icon.svg" className="" />
       </Head>
 
-      <main className={styles.main}>
+      <main className="min-h-100vh flex flex-col items-center justify-center border shadow-2xl w-1/3">
         <h1 className={styles.title}>Welcome :)</h1>
 
         <div className={styles.card}>
