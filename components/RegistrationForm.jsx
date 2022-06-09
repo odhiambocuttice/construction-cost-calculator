@@ -182,7 +182,7 @@ export const RegistrationForm = () => {
             </div>
             <div className="flex items-center justify-center">
               <button
-                class="rounded text-black hover:bg-green-300 border-slate-500 border p-2  "
+                className="rounded text-black hover:bg-green-300 border-slate-500 border p-2  "
                 type="submit"
               >
                 Submit Details

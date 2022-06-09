@@ -23,7 +23,7 @@ export const NumberOfRooms = () => {
         </div>
 
         <button
-          class="w-full rounded text-gray-500"
+          className="w-full rounded text-gray-500"
           onClick={() => setOpen(!open)}
         >
           Click to select the total number rooms

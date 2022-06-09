@@ -30,7 +30,7 @@ export const HouseArea = () => {
         </div>
 
         <button
-          class="w-full text-base text-gray-500"
+          className="w-full text-base text-gray-500"
           onClick={() => setOpen(!open)}
         >
           Calculate the total area of your house
