@@ -16,9 +16,7 @@ export default function Home() {
         <h1 className={styles.title}>Welcome :)</h1>
 
         <div className={styles.card}>
-          <p className={styles.description}>
-            Emmanuel's Construction Cost Calculator
-          </p>
+          <p className={styles.description}>Construction Cost Calculator</p>
         </div>
         <Calculator />
       </main>
