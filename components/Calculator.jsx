@@ -8,18 +8,16 @@ import { RoofType } from "./RoofType";
 import { RegistrationForm } from "./RegistrationForm";
 
 export const Calculator = () => {
-  const [open, setOpen] = useState(false);
-  const [openRoom, setOpenRoom] = useState(false);
-
   return (
-    <>
+    <div className="shadow-2xl lg:w-1/3 lg:mx-auto mx-3 my-9">
+      <h1 className="font-semibold text-2xl text-gray-900 text-center">
+        Construction Cost Details
+      </h1>
       <CountySelect />
       <RoofType />
       <HouseArea />
       <NumberOfRooms />
-      <div className="w-full mx-auto h-1 bg-slate-900 mt-2"></div>
-      <RegistrationForm />
-    </>
+    </div>
   );
 };
 

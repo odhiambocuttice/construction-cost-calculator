@@ -1,45 +1,45 @@
-import { useState } from "react";
-import { faCheckSquare } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState, useContext } from "react";
+
+import { DataContext } from "../context/DataContext";
 
 export const NumberOfRooms = () => {
-  const [floors, setFloors] = useState(0);
-  const [rooms, setRooms] = useState(0);
-  const [bedrooms, setBedrooms] = useState(0);
-  const [bathrooms, setBathrooms] = useState(0);
+  // const [floors, setFloors] = useState(0);
+  // const [rooms, setRooms] = useState(0);
+  // const [bedrooms, setBedrooms] = useState(0);
+  // const [bathrooms, setBathrooms] = useState(0);
   const [open, setOpen] = useState(false);
 
-  const [total, setTotal] = useState(0);
+  // const [total, setTotal] = useState(0);
+
+  const {
+    floors,
+    setFloors,
+    rooms,
+    setRooms,
+    bedrooms,
+    setBedrooms,
+    bathrooms,
+    setBathrooms,
+    total,
+    setTotal,
+  } = useContext(DataContext);
 
   function calculateTotal() {
     setTotal(floors + rooms + bedrooms + bathrooms);
   }
 
   return (
-    <>
-      <div className="flex justify-center items-center border-2 border-slate-500 rounded p-2  w-2/3 hover:bg-blue-200">
-        <div className=" rounded">
-          <FontAwesomeIcon className="px-2 w-9 h-9" icon={faCheckSquare} />
-        </div>
-
-        <button
-          className="w-full rounded text-gray-500"
-          onClick={() => setOpen(!open)}
-        >
-          Click to select the total number rooms
+    <div className="w-full mx-auto text-lg font-light flex justify-center items-center my-6 flex-col ">
+      <div className="lg:w-1/2 mx-6  flex justify-center items-center border border-gray-900 rounded p-2  hover:text-white bg-gradient-to-r from-purple-500 to-pink-500 mb-6">
+        <button className="" onClick={() => setOpen(!open)}>
+          Click to calculate the total number of ROOMS
         </button>
       </div>
-      {/* <button
-        onClick={() => setOpen(!open)}
-        className="inline-flex justify-center rounded-md border shadow-sm px-4 py-2 bg-white border-slate-800 text-base font-medium text-black hover:bg-green-400 sm:ml-3 sm:w-auto sm:text-sm"
-      >
-        Total Rooms
-      </button> */}
+
       {open && (
-        // <div className="fixed inset-0 z-50 overflow-auto">
-        <div className="flex lg:left-[1250px] lg:top-1/2 lg:absolute flex-col justify-center text-base shadow-xl items-start m-4 p-6 font-semibold text-left rounded max-w-xs">
-          <h1 className="text-gray-600 my-3 mx-auto font-light">
-            Please specify the number of rooms
+        <div className="flex lg:top-1/3 lg:absolute flex-col justify-center text-base font-light shadow-xl items-start m-4 p-6 text-left rounded max-w-xs bg-white lg:mt-20 mt-0">
+          <h1 className="text-gray-900 my-3 mx-auto font-semibold text-center">
+            Please specify the number of rooms for the house
           </h1>
 
           <div className="flex p-2 h-14 justify-start items-center ">
@@ -89,7 +89,7 @@ export const NumberOfRooms = () => {
           <div className="flex justify-start items-center">
             <button
               onClick={calculateTotal}
-              className="inline-flex justify-center rounded-md border shadow-sm px-4 py-2 bg-white border-slate-800 text-base font-medium text-black hover:bg-green-400 sm:ml-3 sm:w-auto sm:text-sm"
+              className="inline-flex justify-center rounded-md border shadow-sm px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 border-slate-800 text-base font-medium text-black"
             >
               Total Rooms
             </button>
@@ -97,8 +97,7 @@ export const NumberOfRooms = () => {
             <h2 className="p-3 ml-7">{total}</h2>
           </div>
         </div>
-        // </div>
       )}
-    </>
+    </div>
   );
 };

@@ -1,63 +1,92 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Select from "react-select";
+import { motion } from "framer-motion";
+
+import { DataContext } from "../context/DataContext";
 import { countiesOfKenya } from "../data/countiesData.js";
-import { faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const customStyles = {
   option: (provided, state) => ({
     ...provided,
-    // borderBottom: "1px solid #a9c9e4",
+    borderBottom: "1px solid rgb(17 24 39)",
     color: state.isSelected ? "white" : "black",
-    backgroundColor: state.isSelected ? "#a9c9e4" : "white",
+    backgroundColor: state.isSelected ? "rgb(17 24 39)" : "white",
+    paddingBottom: "4px",
+    paddingTop: "4px",
   }),
+
   control: (provided) => ({
     ...provided,
-    // backgroundColor: "#a9c9e4",
-    border: "1px solid #a9c9e4",
+    border: "1px solid rgb(17 24 39)",
   }),
+
   menu: (provided) => ({
     ...provided,
-    position: "absolute",
-    left: "29rem",
-    top: "0",
-    // bottom: `${window.innerHeight - 200}px`,
-    width: "14rem",
+    borderRadius: "4px",
   }),
 };
 
 export const CountySelect = () => {
-  const [county, setCounty] = useState([]);
+  const { setCounty } = useContext(DataContext);
 
   const handleChange = (e) => {
     setCounty(e);
   };
 
-  return (
-    <>
-      <div className="flex w-2/3 justify-center items-center border-2 border-slate-900 rounded p-2">
-        <div className="rounded">
-          <FontAwesomeIcon className="px-2 w-9 h-9" icon={faMapLocationDot} />
-        </div>
+  let easing = [0.6, -0.05, 0.01, 0.99];
 
+  const stagger = {
+    animate: {
+      transition: {
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
+  const fadeInUp = {
+    initial: {
+      y: 60,
+      opacity: 0,
+      transition: { duration: 0.8, ease: easing },
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: easing,
+      },
+    },
+  };
+
+  return (
+    // <>
+    <motion.div
+      initial="initial"
+      animate="animate"
+      exit={{ opacity: 0 }}
+      className="flex  justify-center items-center rounded p-1 lg:mx-auto my-4  mx-3"
+    >
+      <motion.div variants={fadeInUp} className="lg:w-1/2 w-full">
         <Select
           options={countiesOfKenya}
-          placeholder="Select your county of choice"
+          placeholder="Select County"
           //   isLoading={true}
           isClearable={true}
           isSearchable={true}
           styles={customStyles}
-          className="w-full"
+          className="text-lg font-light"
           onChange={handleChange}
         />
-      </div>
-      {county === null ? (
-        ""
-      ) : (
-        <h4>
-          You have selected <b>{county["label"]}</b> county
-        </h4>
-      )}
-    </>
+      </motion.div>
+    </motion.div>
+    // {county === null ? (
+    //   ""
+    // ) : (
+    //   <h4>
+    //     You have selected <b>{county["label"]}</b> county
+    //   </h4>
+    // )}
+    // </>
   );
 };
