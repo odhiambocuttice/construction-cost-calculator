@@ -22,7 +22,7 @@ export const HouseArea = () => {
 
   return (
     <div className="  mx-6 lg:mx-auto text-lg font-light flex justify-center items-center my-6">
-      <div className="lg:w-1/2 w-full flex justify-center items-center border border-gray-900 rounded p-2  hover:text-white bg-gradient-to-r from-purple-500 to-pink-500">
+      <div className="lg:w-1/2 w-full flex justify-center items-center border border-gray-900 rounded p-2  hover:text-white bg-gradient-to-r from-purple-700 to-pink-600">
         <button className="" onClick={() => setOpen(!open)}>
           Click to calculate the total area of HOUSE
         </button>
@@ -43,7 +43,7 @@ export const HouseArea = () => {
             >
               <div className="bg-[#F4F7FA] px-4 rounded-xl">
                 <div className="flex items-center justify-center ">
-                  <div className="absolute top-[-40px] mx-auto rounded-full  bg-gradient-to-r from-purple-500 to-pink-500 flex-shrink-0 flex items-center justify-center h-20 w-20 ">
+                  <div className="absolute top-[-40px] mx-auto rounded-full  bg-gradient-to-r from-purple-700 to-pink-600 flex-shrink-0 flex items-center justify-center h-20 w-20 ">
                     <FontAwesomeIcon
                       className="h-10 w-10 text-gray-900"
                       icon={faHouseCircleExclamation}
@@ -99,7 +99,7 @@ export const HouseArea = () => {
 
                     <button
                       type="button"
-                      className="w-full inline-flex justify-center rounded-md border shadow-sm px-4 py-2 my-2 lg:my-0 bg-gradient-to-r from-purple-500 to-pink-500 border-gray-900 text-base font-medium text-black"
+                      className="w-full inline-flex justify-center rounded-md border shadow-sm px-4 py-2 my-2 lg:my-0 bg-gradient-to-r from-purple-700 to-pink-600 border-gray-900 text-base font-medium text-black"
                       onClick={calculateTotal}
                     >
                       Add

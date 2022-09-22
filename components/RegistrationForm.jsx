@@ -161,7 +161,7 @@ export const RegistrationForm = () => {
           </div>
 
           {/* submit */}
-          <div className="flex items-center justify-center  bg-gradient-to-r from-purple-500 to-pink-500 mx-6 my-4 rounded-full w-3/4  hover:bg-transparent text-white hover:text-gray-900">
+          <div className="flex items-center justify-center  bg-gradient-to-r from-purple-600 to-pink-600 mx-6 my-4 rounded-full w-3/4  hover:bg-transparent text-white hover:text-gray-900">
             <button className="font-bold" type="submit">
               Submit Details
             </button>

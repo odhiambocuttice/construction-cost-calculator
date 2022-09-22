@@ -30,7 +30,7 @@ export const NumberOfRooms = () => {
 
   return (
     <div className="w-full mx-auto text-lg font-light flex justify-center items-center my-6 flex-col ">
-      <div className="lg:w-1/2 mx-6  flex justify-center items-center border border-gray-900 rounded p-2  hover:text-white bg-gradient-to-r from-purple-500 to-pink-500 mb-6">
+      <div className="lg:w-1/2 mx-6  flex justify-center items-center border border-gray-900 rounded p-2  hover:text-white bg-gradient-to-r from-purple-700 to-pink-600 mb-6">
         <button className="" onClick={() => setOpen(!open)}>
           Click to calculate the total number of ROOMS
         </button>
@@ -89,7 +89,7 @@ export const NumberOfRooms = () => {
           <div className="flex justify-start items-center">
             <button
               onClick={calculateTotal}
-              className="inline-flex justify-center rounded-md border shadow-sm px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 border-slate-800 text-base font-medium text-black"
+              className="inline-flex justify-center rounded-md border shadow-sm px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 border-slate-800 text-base font-medium text-black"
             >
               Total Rooms
             </button>
