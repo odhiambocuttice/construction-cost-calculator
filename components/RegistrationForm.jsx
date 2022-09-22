@@ -14,13 +14,13 @@ export const RegistrationForm = () => {
   const { onSubmit } = useContext(DataContext);
 
   return (
-    <div className="flex justify-center items-center p-4 mx-3">
+    <div className="lg:flex lg:justify-center">
       <div className="shadow-2xl">
         <h1 className="font-semibold text-2xl text-gray-900 text-center">
           Identification Details
         </h1>
         <form
-          className="shadow-2xl p-5  justify-center items-center flex flex-col -z-50"
+          className="shadow-2xl p-5  justify-center items-center flex flex-col"
           onSubmit={handleSubmit(onSubmit)}
           noValidate
         >
