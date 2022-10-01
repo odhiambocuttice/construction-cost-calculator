@@ -2,8 +2,8 @@ import { useContext } from "react";
 import Select from "react-select";
 import { motion } from "framer-motion";
 
+import { finishesTypes } from "../data/finishesData.js";
 import { DataContext } from "../context/DataContext";
-import { countiesOfKenya } from "../data/countiesData.js";
 
 const customStyles = {
   option: (provided, state) => ({
@@ -26,22 +26,14 @@ const customStyles = {
   }),
 };
 
-export const CountySelect = () => {
-  const { setCounty } = useContext(DataContext);
+export const Finishes = () => {
+  const { setFinishes } = useContext(DataContext);
 
   const handleChange = (e) => {
-    setCounty(e);
+    setFinishes(e);
   };
 
   let easing = [0.6, -0.05, 0.01, 0.99];
-
-  const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  };
 
   const fadeInUp = {
     initial: {
@@ -60,7 +52,6 @@ export const CountySelect = () => {
   };
 
   return (
-    // <>
     <motion.div
       initial="initial"
       animate="animate"
@@ -69,8 +60,8 @@ export const CountySelect = () => {
     >
       <motion.div variants={fadeInUp} className="lg:w-1/2 w-full">
         <Select
-          options={countiesOfKenya}
-          placeholder="Select County"
+          options={finishesTypes}
+          placeholder="Select Finishes Type"
           //   isLoading={true}
           isClearable={true}
           isSearchable={true}
@@ -80,13 +71,5 @@ export const CountySelect = () => {
         />
       </motion.div>
     </motion.div>
-    // {county === null ? (
-    //   ""
-    // ) : (
-    //   <h4>
-    //     You have selected <b>{county["label"]}</b> county
-    //   </h4>
-    // )}
-    // </>
   );
 };

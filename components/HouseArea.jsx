@@ -5,26 +5,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DataContext } from "../context/DataContext";
 
 export const HouseArea = () => {
-  // const [height, setHeight] = useState(0);
-  // const [width, setWidth] = useState(0);
   const [open, setOpen] = useState(false);
 
-  // const [totalArea, setTotalArea] = useState(0);
-  const { setHouseArea, HouseArea, setHeight, height, width, setWidth } =
-    useContext(DataContext);
+  const {
+    setHouseArea,
+    HouseArea,
+    setHeight,
+    height,
+    width,
+    setWidth,
+    floors,
+    setFloors,
+  } = useContext(DataContext);
 
   function calculateTotal() {
-    setHouseArea(height * width);
+    setHouseArea(height * width * floors);
     setTimeout(() => {
       setOpen(false);
-    }, 2000);
+    }, 3000);
   }
 
   return (
-    <div className="  mx-6 lg:mx-auto text-lg font-light flex justify-center items-center my-6">
+    <div className="mx-6 lg:mx-auto text-lg font-light flex justify-center items-center my-2">
       <div className="lg:w-1/2 w-full flex justify-center items-center border border-gray-900 rounded p-2  hover:text-white bg-gradient-to-r from-purple-700 to-pink-600">
         <button className="" onClick={() => setOpen(!open)}>
-          Click to calculate the total area of HOUSE
+          Click to calculate the total area of HOUSE in square meters
         </button>
       </div>
 
@@ -58,6 +63,17 @@ export const HouseArea = () => {
                 </div>
                 <div className="mt-3 text-center">
                   <div className="flex items-center justify-start flex-col">
+                    <div className="flex p-2 justify-start items-center ml-12 ">
+                      <h1 className="px-3">Number of Floors:</h1>
+                      <input
+                        type="number"
+                        className="p-2 border-2 border-slate-600 rounded-md w-1/4 text-center"
+                        value={floors}
+                        onChange={(e) => setFloors(e.target.value)}
+                        placeholder="0"
+                      />
+                    </div>
+
                     <div className="flex p-2 justify-center items-center">
                       <h1 className="px-3">Width:</h1>
                       <input
@@ -70,7 +86,7 @@ export const HouseArea = () => {
                     </div>
 
                     <div className="flex p-2 justify-center items-center">
-                      <h1 className="px-2">Height:</h1>
+                      <h1 className="px-2">Length:</h1>
                       <input
                         type="number"
                         className="p-2 border-2 border-gray-900 rounded-md w-1/3 text-center"
@@ -80,10 +96,10 @@ export const HouseArea = () => {
                       />
                     </div>
 
-                    <div className="p-2 w-full rounded-xl flex justify-center items-center">
+                    <div className="p-2 w-full rounded-xl flex justify-center items-center ml-4">
                       <h1 className="px-3">Total Area:</h1>
-                      <p className="border-2 border-gray-900 rounded-md text-center p-2 w-1/2 bg-white">
-                        {HouseArea}
+                      <p className="border-2 border-gray-900 rounded-md text-center p-2 w-1/3 bg-white">
+                        {HouseArea} m²
                       </p>
                     </div>
                   </div>
@@ -91,7 +107,7 @@ export const HouseArea = () => {
                   <div className="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                     <button
                       type="button"
-                      className="mt-3 w-full inline-flex justify-center rounded  border px-4 py-2 bg-white text-base font-medium border-gray-900 text-black  sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                      className="mt-3 w-full inline-flex justify-center rounded-full  border px-4 py-2 bg-white text-base font-medium border-gray-900 text-black  sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                       onClick={() => setOpen(false)}
                     >
                       Cancel
@@ -99,7 +115,7 @@ export const HouseArea = () => {
 
                     <button
                       type="button"
-                      className="w-full inline-flex justify-center rounded-md border shadow-sm px-4 py-2 my-2 lg:my-0 bg-gradient-to-r from-purple-700 to-pink-600 border-gray-900 text-base font-medium text-black"
+                      className="w-full inline-flex justify-center rounded-full border shadow-sm px-4 py-2 my-2 lg:my-0 bg-gradient-to-r from-purple-700 to-pink-600 border-gray-900 text-base font-medium text-black"
                       onClick={calculateTotal}
                     >
                       Add

@@ -1,5 +1,5 @@
 export const roofTypes = [
-  { value: "straight forward pitch", label: "Straight Forward Pitch" },
-  { value: "complex pitch roof", label: "Complex Pitch Roof" },
-  { value: "flat roof", label: "Flat Roof" },
+  { value: "simple roof", label: "Simple" },
+  { value: "decra roof", label: "Decra" },
+  { value: "flat roof", label: "Flat" },
 ];

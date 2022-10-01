@@ -64,9 +64,9 @@ export const RoofType = () => {
       initial="initial"
       animate="animate"
       exit={{ opacity: 0 }}
-      className="flex  justify-center items-center rounded p-1 lg:mx-auto my-4  mx-3"
+      className="flex  justify-center items-center rounded p-1 lg:mx-auto my-2 mx-3"
     >
-      <motion.div variants={fadeInUp} className="lg:w-1/2 w-full">
+      <motion.div variants={fadeInUp} className="lg:w-1/2 w-full mb-4">
         <Select
           options={roofTypes}
           placeholder="Select Roof Type"
