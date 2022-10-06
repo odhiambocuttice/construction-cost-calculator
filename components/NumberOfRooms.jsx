@@ -19,7 +19,7 @@ export const NumberOfRooms = () => {
         </button> */}
 
         <div className="flex p-2 h-14 justify-start items-center">
-          <h1 className="text-gray-700 ">Select number of Rooms</h1>
+          <h1 className="text-gray-700 ">Select number of BedRooms</h1>
           <input
             className="p-2 border-2 border-slate-600 rounded-md w-32"
             type="number"
